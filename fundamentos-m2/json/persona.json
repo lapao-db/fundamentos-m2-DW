@@ -1,0 +1,12 @@
+{
+    "id" : 1,
+    "nombre" : "Laura Daza",
+    "edad" : 30,
+    "direccion" : {
+        "ciudad" : "Bogotá",
+        "pais" : "Colombia"
+    },
+    "hobbies" : ["manualidades", "senderismo", "repostería"],
+    "esCasada" : false
+
+}
