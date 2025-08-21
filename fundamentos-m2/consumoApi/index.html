@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Consumo API</title>
+    <!-- Script ---- se ejecuta de forma asincronica con ese atributo async/defer-->
+     <!-- 
+        async -> scripts externos 
+        defer -> Esta es otra opcion cuando se va a trabajar con scripts propios, el navegador sabe que debe espera
+     -->
+    <script async src="./script.js"></script> 
+     <!-- <script defer src="../script.js"></script> -->
+    
 </head>
 <body>
+    <header>
+        <h1>Consumo de APIs</h1>
+    </header>
+    <main>
+        <section>
+            <button id="btn-info" onclick="cargarInformacion()">Mostrar mi Información</button>  <!-- se puede con onlcick llamar la función -->
+            <button onclick="cargarApi()">Mostrar API</button>
+        </section>
+        <section id="datos">
+            
+            
+        </section>
+
+
+    </main>
+    <footer>
+        Creado por BOOTCAMP DESARROLLO WEB FULL STACK 2025 BIT
+    </footer>
     
 </body>
 </html>
