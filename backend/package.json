@@ -1,0 +1,19 @@
+{
+  "name": "proyecto-clase",
+  "version": "1.0.0",
+  "description": "Proyecto de clase bootcamp desarrollo web full stack",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev":"nodemon app.js"
+  },
+  "author": "Laura Daza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
