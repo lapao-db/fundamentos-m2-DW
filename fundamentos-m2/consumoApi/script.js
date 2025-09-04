@@ -12,7 +12,7 @@ Funcion Flecha -> No se puede llamar antes de ser creada la funcion (declarada)
 const cargarInformacion = async() => {
     
     try {
-    const respuesta = await fetch("../json/persona.json");
+    const respuesta = await fetch("./json/persona.json");
     const persona = await respuesta.json();
     console.log("persona obetida", persona);
     mostrarInfor(persona);
