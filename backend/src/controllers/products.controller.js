@@ -12,8 +12,22 @@ export const postProduct = async (request, response) => {
    // return response.json({"mensaje": "Funciona petición POST"});
    //Al conectar con servidor se debe usar la función async. ESte sirve porque se hace con Mongo y Node
 
-   try {
-        await productModel.create(request.body);
+    try {
+        if(!request.file){
+            return response.status(400).json({
+                "mensaje": "Debes subir un archivo de imagen"
+            })
+        }
+
+        //Organizo primero producto que se va a crear
+        //Spread operator para que tome todo lo que envia el usuario ...
+        const newProduct = {
+            ...request.body,
+            image: `/uploads/${request.file.filename}` //modificado imagen que llega 
+
+        }
+
+        await productModel.create(newProduct); // se cambio request.body por newProduct -> producto solo con URL imagen 
         return response.status(201).json({
             "mensaje": "Producto creado correctamente"
         });
@@ -47,7 +61,7 @@ export const getAllProducts = async (req, res) =>{
 export const putProductById = async (req, res) =>{
     //return res.json({"mensaje":"Sirve funcion Actualizar - PUT"});
     try {
-        const idForUpdate = req.params; // Parametro por que se va a buscar
+        const idForUpdate = req.params.id; // Parametro por que se va a buscar
         const dataForUpdate = req.body; // informacion que se va a actualizar
 
         await productModel.findByIdAndUpdate(idForUpdate,dataForUpdate); //indicarle cual es el id y cual es la info a actualizar
@@ -67,18 +81,18 @@ export const putProductById = async (req, res) =>{
 export const deleteProductById = async (req, res)=>{
     //return res.json({"mensaje":"Funciona para Eliminar un producto por id - DELETE"});
     try {
-        const idForDelete = req.params;
+        const idForDelete = req.params.id;
         await productModel.findByIdAndDelete(idForDelete);
 
         return res.status(200).json({
-            "mensaje": "Ocurrio un error al eliminar producto",
-            "error": error.message || error
+            "mensaje": "elimino producto",
+            
         })
         
     } catch (error) {
         return res.status(500).json({
             "mensaje": "Ocurrio un error al actualizar producto",
-            "error" : error.message || error
+            "error" : error.message || error 
         })
     }
 }

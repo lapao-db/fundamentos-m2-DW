@@ -1,5 +1,5 @@
 //1.  importar dependencia para crear estructura de la base de datos
-import mongoose, { trusted } from "mongoose";
+import mongoose from "mongoose";
 
 
 //2. COnstruir la platilla modelo 
