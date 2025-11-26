@@ -1,2 +1,5 @@
 node_modules
 .env
+/uploads
+/consumo-api-ghibli/
+/notas/
